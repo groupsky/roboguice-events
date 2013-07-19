@@ -28,11 +28,15 @@ import eu.masconsult.roboguice.activity.event.OnAfterSetContentViewEvent;
 import eu.masconsult.roboguice.activity.event.OnBeforeSetContentViewEvent;
 
 @RunWith(RobolectricRoboTestRunner.class)
-public class ActivityEventsTest {
+public abstract class ActivityEventsTest {
 
-	protected Class<? extends Activity> activityClass = RoboEventsActivity.class;
+	protected Class<? extends Activity> activityClass;
 	protected Activity activity;
 	protected EventManager mockEventManager;
+
+	public ActivityEventsTest(Class<? extends Activity> activityClass) {
+		this.activityClass = activityClass;
+	}
 
 	@Before
 	public void setUp() throws Exception {
